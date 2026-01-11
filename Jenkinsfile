@@ -49,20 +49,17 @@ pipeline {
         }
     }
 
-post {
+post{
     success{
-        emailtext(
-            subject: "Build was Successfull", 
-            body: "Congratulations! Your build was successfull ",
-            to: "sanketdeshmukh885@gmail.com"
-        )
-    failure{
-        emailtext(
-            subject: "Build was Failed !",
-            body: "Bad News:Your build was failed ",
-            to: "sanketdeshmukh885@gmail.com"
-        )
+        emailext body: 'Build was successfull',
+                 subject: 'Congratulations: Build Successfull',
+                 to: 'sanketdeshmukh885@gmail.com'
     }
+    failure{
+        emailext body: 'Build was failed',
+                 subject: 'Bad News: Build Failed',
+                 to: 'sanketdeshmukh885@gmail.com'
+        
     }
 }
 }
